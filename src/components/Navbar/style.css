@@ -5,3 +5,7 @@ nav {
     webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
+
+img {
+    margin-top: 10px;
+}
