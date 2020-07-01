@@ -35,6 +35,29 @@ This gif demonstrates the application's functionality: [update]
 <!-- <img src = "/public/images/dadjokes-demo.gif" width="600"> -->
 
 
+
+## Github Style Guide
+* **Branching Name Convention:** they should begin with the sub-category such as `feature`, followed by which portion of the project it is frontend or backend such as `fe`, followed by the ID number generated inside of Trello using [our Chrome extension](https://chrome.google.com/webstore/detail/trello-card-numbers/kadpkdielickimifpinkknemjdipghaf?hl=en) such as `004`. Lastly, finsh it off with a description of the Trello card you are working on. Here is an example: `feature-fe004-homepage-main-component` or `feature-be009-mongoDB-setup`
+* **Pull Request Name Convention:** they should be displayed with `FE<ID# HERE> - <SUMMARY OF TRELLO CARD>`, for example `FE014 - Fixed The Katabi Logo location`
+
+* **Bug or Code Issue Convention:** please make a new issue on Github (using github issues) and depending if it is frontend or backend, label it respectively. (`[FE] [page name] - [description here]` i.e. `[FE] Landingpage - image is not mobile responsive.`)
+Then use `[query] in:title` in the issues search to sort by page name. (i.e `Landiingpage in:title`)
+
+
+### List of branch sub-categories:
+* `feature` for a feature in progress on Trello
+* `improvement` for a feature that has been enhanced from its original development
+*  `bug` for bug fixes or issues discovered
+
+## Frontend Style Guide
+* For SCSS/CSS id names use dashes only such as `hello-world-class`
+* For SCSS/CSS try to keep the styling coupled with the component and `@import` the global variables when needed
+
+## Trello Board 
+*You will need to be added to the board previously in order to view*
+
+
+
 ## License
 
 This project is licensed under the MIT license.
