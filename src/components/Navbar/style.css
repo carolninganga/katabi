@@ -1,7 +1,7 @@
 nav {
-    background: #000046;  
-    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  
-    background: linear-gradient(to right, #1CB5E0, #000046);  
+    background: #000000;  
+    background: -webkit-linear-gradient(to right, #000000, #000000);  
+    background: linear-gradient(to right, #000000, #000000);  
     webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
