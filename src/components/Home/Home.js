@@ -1,28 +1,147 @@
-import React from 'react';
-import './style.css';
+import React, { Component } from "react";
 
-function Home() {
+//import "../../node_modules/react-dat-gui/build/react-dat-gui.css";
+import DatGui, { DatNumber, DatSelect, DatButton } from "react-dat-gui";
+
+import FluidAnimation from "../../react-fluid-animation";
+import random from "random";
+
+const defaultConfig = {
+  textureDownsample: 1,
+  densityDissipation: 0.98,
+  velocityDissipation: 0.99,
+  pressureDissipation: 0.8,
+  pressureIterations: 25,
+  curl: 30,
+  splatRadius: 0.005
+};
+
+export default class Home extends Component {
+  state = {
+    config: {
+      ...defaultConfig
+    }
+  };
+
+  componentDidMount() {
+    this._reset();
+  }
+
+  render() {
+    const { config } = this.state;
+
     return (
-        <div className="container">
-            <div className="row">  
-                <div className="col s6">
-                <h4 className="center" id="heading">
-                Katabi
-                </h4>
-                <div className="input-field col s12">
-                <input type="text" className="eventInfo" />
-                <label id="inputLabel" for="text">Enter event code</label>
-                </div>
-            </div>
-            <div id="HeroWrapper" className="col s6">
-            <img src="https://cdn.glitch.com/823d971b-2ee5-4e17-bb98-ec24b973c4c0%2Fvr-headset-removebg.png?v=1592856275884" alt="logo" />
-            {/* <div id="heroImg" className="row contain" style={{background: 'url(https://cdn.glitch.com/823d971b-2ee5-4e17-bb98-ec24b973c4c0%2Fvr-headset-removebg.png?v=1592856275884) center / cover'}}></div> */}
-            </div>
+      <div
+        style={{
+          height: "100vh"
+        }}
+      >
+        <FluidAnimation config={config} animationRef={this._animationRef} />
+
+        <div
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            padding: "1em",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "#fff",
+            fontFamily: 'Quicksand, "Helvetica Neue", sans-serif',
+            pointerEvents: "none"
+          }}
+        >
+          <h1
+            style={{
+              fontSize: "3em",
+              textShadow: "2px 2px 8px rgba(0, 0, 0, 0.5)"
+            }}
+          >
+            Katabi
+          </h1>
         </div>
-        </div>
-    )
+
+        <DatGui data={config} onUpdate={this._onUpdate}>
+          <DatSelect
+            path="textureDownsample"
+            label="Texture Downsample"
+            options={[0, 1, 2]}
+          />
+
+          <DatNumber
+            path="densityDissipation"
+            label="Density Diffusion"
+            min={0.9}
+            max={1.0}
+          />
+
+          <DatNumber
+            path="velocityDissipation"
+            label="Velocity Diffusion"
+            min={0.9}
+            max={1.0}
+          />
+
+          <DatNumber
+            path="pressureDissipation"
+            label="Pressure Diffusion"
+            min={0.0}
+            max={1.0}
+          />
+
+          <DatNumber
+            path="pressureIterations"
+            label="Pressure Iterations"
+            min={1}
+            max={60}
+            step={1}
+          />
+
+          <DatNumber path="curl" label="Curl" min={0} max={50} step={1} />
+
+          <DatNumber
+            path="splatRadius"
+            label="Splat Radius"
+            min={0.0001}
+            max={0.02}
+          />
+
+          <DatButton
+            label="Random Splats"
+            onClick={this._onClickRandomSplats}
+          />
+
+          <DatButton label="Reset Config" onClick={this._onReset} />
+        </DatGui>
+      </div>
+    );
+  }
+
+  _animationRef = ref => {
+    this._animation = ref;
+    this._reset();
+  };
+
+  _onUpdate = config => {
+    this.setState({ config });
+  };
+
+  _onClickRandomSplats = () => {
+    this._animation.addSplats((5 + Math.random() * 20) | 0);
+  };
+
+  _onReset = () => {
+    this.setState({ config: { ...defaultConfig } });
+  };
+
+  _reset() {
+    if (this._animation) {
+      this._animation.addRandomSplats(random.int(100, 180));
+    }
+  }
 }
-
-
-
-export default Home;
