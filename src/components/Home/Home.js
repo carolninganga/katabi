@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import DatGui, { DatNumber, DatSelect, DatButton } from "react-dat-gui";
 
 import FluidAnimation from "../../react-fluid-animation";
+import LayoutTextFields from "../LayoutTextFields/LayoutTextFields";
 import random from "random";
 
 const defaultConfig = {
@@ -64,6 +65,7 @@ export default class Home extends Component {
           >
             Katabi
           </h1>
+          <LayoutTextFields />
         </div>
 
         <DatGui data={config} onUpdate={this._onUpdate}>
