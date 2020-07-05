@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
 //import "../../node_modules/react-dat-gui/build/react-dat-gui.css";
-import DatGui, { DatNumber, DatSelect, DatButton } from "react-dat-gui";
-
 import FluidAnimation from "../../react-fluid-animation";
 import LayoutTextFields from "../LayoutTextFields/LayoutTextFields";
 import random from "random";
@@ -68,58 +66,6 @@ export default class Home extends Component {
           <LayoutTextFields />
         </div>
 
-        <DatGui data={config} onUpdate={this._onUpdate}>
-          <DatSelect
-            path="textureDownsample"
-            label="Texture Downsample"
-            options={[0, 1, 2]}
-          />
-
-          <DatNumber
-            path="densityDissipation"
-            label="Density Diffusion"
-            min={0.9}
-            max={1.0}
-          />
-
-          <DatNumber
-            path="velocityDissipation"
-            label="Velocity Diffusion"
-            min={0.9}
-            max={1.0}
-          />
-
-          <DatNumber
-            path="pressureDissipation"
-            label="Pressure Diffusion"
-            min={0.0}
-            max={1.0}
-          />
-
-          <DatNumber
-            path="pressureIterations"
-            label="Pressure Iterations"
-            min={1}
-            max={60}
-            step={1}
-          />
-
-          <DatNumber path="curl" label="Curl" min={0} max={50} step={1} />
-
-          <DatNumber
-            path="splatRadius"
-            label="Splat Radius"
-            min={0.0001}
-            max={0.02}
-          />
-
-          <DatButton
-            label="Random Splats"
-            onClick={this._onClickRandomSplats}
-          />
-
-          <DatButton label="Reset Config" onClick={this._onReset} />
-        </DatGui>
       </div>
     );
   }
