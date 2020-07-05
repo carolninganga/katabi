@@ -194,7 +194,7 @@ const cards = [
     image: 'https://cdn.glitch.com/27911338-ce21-4c5e-8227-daa298f2e3ec%2Fself2.png?v=1577000285088',
     title: 'Pheobe Yaheng Wu ⚡️',
     description:
-      "I am Phoebe, an accountant and a front-end web developer. As an accountant, my experience lies in reconciliations and P&L analysis, and I'm capable of data wrangling and visualization through SQL, Python and Tableau, while also skilled at coding in VBA to automate event processes. As a web developer, I focus on creating modern-look websites using HTML, CSS, JavaScript, React, jQuery, Bootstrap and Materialize. Outside of work, I love Zumba! I was an aerobic dancing instructor for three years. I also love watching stand-up comedy in my free time. Sometimes I try to throw some jokes into conversations with friends. Most times, they fall flat - but hey, I try.",
+      "I am Phoebe, an accountant and a front-end web developer. As an accountant, my experience lies in reconciliations and P&L analysis, and I'm capable of data wrangling and visualization through SQL, Python and Tableau, while also skilled at coding in VBA to automate event processes. As a web developer, I focus on creating modern-look websites using HTML, CSS, JavaScript, React, jQuery, Bootstrap and Materialize.",
     imageRatio: 784 / 1016
   }
 
